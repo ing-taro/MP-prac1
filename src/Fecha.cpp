@@ -156,4 +156,12 @@ Fecha operator+(int dias, const Fecha& f) {
     return temp;
 }
 
+ostream& operator<<(ostream& s, const Fecha& f) {
+    if (f.Dia < 10)
+        s << "0";
+    s << f.Dia << "/";
+    if (f.Mes < 10)
+        s << "0";
+    s <<f.Mes << "/" <<f.Anio;
+}
 

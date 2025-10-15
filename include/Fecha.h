@@ -51,6 +51,7 @@ class Fecha
 
         Fecha operator+(int dias) const;
 
+        friend ostream& operator<<(ostream& s, const Fecha& f);
 
 
 
@@ -60,6 +61,8 @@ class Fecha
 };
 
 Fecha operator+(int dias, const Fecha& f); //tambien lo podríamos usar como funcion Amiga
+
+ostream& operator<<(ostream& s, const Fecha& f);
 
 
 #endif // FECHA_H
