@@ -42,6 +42,12 @@ class Fecha
 
         void ver()const;
 
+         //es bisiesto si es divisible entre 400 o es divisible entre 4 y no entre 100, es bisiesto
+        bool bisiesto() const;
+
+
+
+
 
 
     protected:

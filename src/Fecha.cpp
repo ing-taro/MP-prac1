@@ -59,3 +59,21 @@ void Fecha::setFecha(const int &D,const  int &M,const int &A)  {
 
 }
 
+void Fecha::ver() const{
+    if (this->Dia < 10)
+        cout << "0";
+  cout << this->Dia << "/";
+    if (this->Mes < 10)
+        cout << "0";
+  cout <<this->Mes << "/" <<this->Anio;
+}
+
+bool Fecha::bisiesto() const {
+    if (this->Anio%400==0 || (this->Anio%4==0 && this->Anio%100!=0))
+        return true;
+    else
+        return false;
+}
+
+
+
