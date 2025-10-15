@@ -45,10 +45,9 @@ class Fecha
          //es bisiesto si es divisible entre 400 o es divisible entre 4 y no entre 100, es bisiesto
         bool bisiesto() const;
 
+        Fecha operator++(int);
 
-
-
-
+        Fecha operator++();
 
     protected:
 

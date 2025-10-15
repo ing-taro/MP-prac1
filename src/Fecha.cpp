@@ -75,5 +75,36 @@ bool Fecha::bisiesto() const {
         return false;
 }
 
+//F3=F2++
+Fecha Fecha::operator++(int) {
+   Fecha temp = *this;
+
+   ++(*this);
+
+   return temp;
+}
+
+Fecha Fecha::operator++() {   //++f
+    int dmax, diaMes[] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
+
+    if (this->bisiesto()) //si el año es bisiesto febrero tiene 29 dias
+      diaMes[2]=29;
+    dmax=diaMes[this->Mes];
+
+    this->Dia++;
+
+    if (this->Dia>dmax) { //si al incrementar dia superamos el numero de dias de dicho mes
+        this->Dia=1;      //pasamos a 1
+        this->Mes++;  //del mes siguiente
+
+        if (this->Mes>12) { //si al incrementar mes pasamos de 12 meses
+            this->Mes=1;    //pasamos al mes 1
+            this->Anio++;   //del año siguiente
+        }
+    }
+
+    return *this; //devolvemos el objeto fecha ya incrementado
+}
+
 
 
