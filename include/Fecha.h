@@ -29,6 +29,20 @@ class Fecha
         //Destructor
         ~Fecha();
 
+        //GETTERS
+        int getDia() const;
+
+        int getMes() const;
+
+        int getAnio() const;
+
+        //SETTERS
+
+        void setFecha(const int &Dia,const  int &Mes,const int &Anio);
+
+        void ver()const;
+
+
 
     protected:
 
