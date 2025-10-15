@@ -49,9 +49,17 @@ class Fecha
 
         Fecha operator++();
 
+        Fecha operator+(int dias) const;
+
+
+
+
     protected:
 
     private:
 };
+
+Fecha operator+(int dias, const Fecha& f); //tambien lo podríamos usar como funcion Amiga
+
 
 #endif // FECHA_H

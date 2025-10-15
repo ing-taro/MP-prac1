@@ -106,5 +106,54 @@ Fecha Fecha::operator++() {   //++f
     return *this; //devolvemos el objeto fecha ya incrementado
 }
 
+Fecha Fecha::operator+(int dias) const {
+    Fecha temp = *this;
+
+    for (int i = 0; i < dias; i++) {
+        int dmax;
+        int diaMes[] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
+
+        if (temp.bisiesto())
+            diaMes[2] = 29;
+
+        dmax = diaMes[temp.Mes];
+        temp.Dia++;
+
+        if (temp.Dia > dmax) {
+            temp.Dia = 1;
+            temp.Mes++;
+            if (temp.Mes > 12) {
+                temp.Mes = 1;
+                temp.Anio++;
+            }
+        }
+    }
+
+    return temp;
+}
+
+Fecha operator+(int dias, const Fecha& f) {
+    Fecha temp(f.getDia(), f.getMes(), f.getAnio());
+
+    for (int i = 0; i < dias; i++) {
+        int dmax;
+        int diaMes[] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
+
+        if (temp.bisiesto())
+            diaMes[2] = 29;
+
+        dmax = diaMes[temp.getMes()];
+
+        temp.setFecha(temp.getDia() + 1, temp.getMes(), temp.getAnio());
+        if (temp.getDia() > dmax) {
+            temp.setFecha(1, temp.getMes() + 1, temp.getAnio());
+            if (temp.getMes() > 12) {
+                temp.setFecha(1, 1, temp.getAnio() + 1);
+            }
+        }
+    }
+
+    return temp;
+}
 
 
