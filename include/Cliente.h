@@ -45,12 +45,9 @@ class Cliente
 
         //sobrecarga del operador ==
         bool operator==(Cliente c) const; // if (c1 ===c2)
-
-
-
-
-
 };
+
+ostream& operator<<(ostream &s, const Cliente &c); //funcion no amiga de la clase
 
 
 #endif // CLIENTE_H

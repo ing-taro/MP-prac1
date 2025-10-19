@@ -1,24 +1,25 @@
 # depslib dependency file v1.0
-1760885887 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte1_mp\main.cpp
+1760890208 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte1_mp\main.cpp
 	<cstdlib>
 	<iostream>
 	"Fecha.h"
+	"Cliente.h"
 
 1760550978 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte1_mp\src\fecha.cpp
 	"Fecha.h"
 	<iostream>
 
-1760550978 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte1_mp\include\fecha.h
+1760889694 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte1_mp\include\fecha.h
 	<iostream>
 
-1760888632 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte1_mp\src\cliente.cpp
+1760890248 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte1_mp\src\cliente.cpp
 	"Cliente.h"
 	<cstdlib>
 	<cstring>
 	<iomanip>
 	<sstream>
 
-1760887785 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte1_mp\include\cliente.h
+1760892492 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte1_mp\include\cliente.h
 	"Fecha.h"
 	<iostream>
 

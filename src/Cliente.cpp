@@ -100,8 +100,12 @@ bool Cliente::operator==(Cliente c) const {
 }
 
 
+//formato: nombre (dni - fecha)
+ostream& operator<<(ostream &s, const Cliente &c){
 
-
+    s<<c.getNombre()<<"("<<c.getDni()<<" - "<<c.getFecha()<<")"<<endl;
+    return s;
+}
 
 
 
