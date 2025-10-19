@@ -11,3 +11,14 @@
 1760550978 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte1_mp\include\fecha.h
 	<iostream>
 
+1760888632 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte1_mp\src\cliente.cpp
+	"Cliente.h"
+	<cstdlib>
+	<cstring>
+	<iomanip>
+	<sstream>
+
+1760887785 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte1_mp\include\cliente.h
+	"Fecha.h"
+	<iostream>
+

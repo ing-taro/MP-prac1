@@ -38,6 +38,14 @@ class Cliente
 
         Fecha getFecha() const;
 
+        //setters
+        void setNombre(char *nom);
+
+        void setFecha(Fecha f);
+
+
+
+
 
 
 
