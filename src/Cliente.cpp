@@ -24,4 +24,17 @@ Cliente::~Cliente()
     delete [] this->nombre;
 }
 
+//sobrecarga del operador =
+Cliente& Cliente::operator=(const Cliente& c) {
+  if (this != &c) { //si no es x=x
+    this->dni=c.dni;
+    delete [] this->nombre;
+    //this->nombre=c.nombre;  //MAL!!!!
+    this->nombre=new char[strlen(c.nombre)+1];
+    strcpy(this->nombre, c.nombre);
+    this->fechaAlta=c.fechaAlta;
+  }
+  return *this;
+}
+
 

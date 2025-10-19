@@ -29,6 +29,8 @@ class Cliente
         //destructor
         virtual ~Cliente();
 
+        Cliente& operator=(const Cliente& c);
+
 
 
 };
