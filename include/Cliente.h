@@ -29,9 +29,32 @@ class Cliente
         //destructor
         virtual ~Cliente();
 
+<<<<<<< HEAD
 
 
 };
 
+=======
+        Cliente& operator=(const Cliente& c);
+
+        //getters
+        long int getDni() const;
+
+        const char* getNombre() const; //VIP devolver un puntero constante para evitar que desde el main() se puede modificar el nombre
+
+        Fecha getFecha() const;
+
+        //setters
+        void setNombre(char *nom);
+
+        void setFecha(Fecha f);
+
+        //sobrecarga del operador ==
+        bool operator==(Cliente c) const; // if (c1 ===c2)
+};
+
+ostream& operator<<(ostream &s, const Cliente &c); //funcion no amiga de la clase
+
+>>>>>>> dev
 
 #endif // CLIENTE_H

@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "Fecha.h" //definicion de la clase Fecha
-//#include "Cliente.h" // definicion de la clase Cliente
+#include "Cliente.h" // definicion de la clase Cliente
 using namespace std;
 int main() {
 
@@ -38,7 +38,11 @@ int main() {
     f3.ver();
     cout << ", "; f4.ver();
     cout << endl;
+<<<<<<< HEAD
 /*
+=======
+
+>>>>>>> dev
 //creamos un puntero que apunta a un objeto de la clase cliente
 Cliente *p = new Cliente(75547001, "Susana Diaz", f1);
 
@@ -64,6 +68,10 @@ else
 //sobrecarga de operadores *
 c = *p;
 
+<<<<<<< HEAD
+=======
+//getfecha +10, sobrecarga del operador +
+>>>>>>> dev
 p->setNombre("Susanita"); p->setFecha(p->getFecha()+10);
 
 cout << "\nDatos de los clientes: \n";
@@ -72,7 +80,10 @@ cout << *p << "\n" << c << "\n" << j << "\n";
 
 delete p; p = NULL;
 
+<<<<<<< HEAD
 */
+=======
+>>>>>>> dev
 
 system("PAUSE"); return 0;
 }
