@@ -31,6 +31,14 @@ class Cliente
 
         Cliente& operator=(const Cliente& c);
 
+        //getters
+        long int getDni() const;
+
+        const char* getNombre() const; //VIP devolver un puntero constante para evitar que desde el main() se puede modificar el nombre
+
+        Fecha getFecha() const;
+
+
 
 
 };

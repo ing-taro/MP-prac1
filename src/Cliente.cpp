@@ -37,4 +37,22 @@ Cliente& Cliente::operator=(const Cliente& c) {
   return *this;
 }
 
+//Getter
+long int Cliente::getDni()const{
 
+    return this->dni;
+
+}
+
+//Getter
+const char* Cliente::getNombre() const {
+
+    return nombre;
+
+}
+
+Fecha Cliente::getFecha() const {
+
+    return fechaAlta;
+
+}
