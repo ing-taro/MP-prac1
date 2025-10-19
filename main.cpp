@@ -38,24 +38,41 @@ int main() {
     f3.ver();
     cout << ", "; f4.ver();
     cout << endl;
-
 /*
+//creamos un puntero que apunta a un objeto de la clase cliente
 Cliente *p = new Cliente(75547001, "Susana Diaz", f1);
+
+//método setfecha
 f1.setFecha(7,10,2015);
+
+//creo un objeto de la clase Cliente con parámetros: int dni, char nombre y apellidos, fecha
 Cliente c(75547999, "Juan Sin Miedo", Fecha(29,2,2000));
+
 const Cliente j(44228547, "Luis", f1);
+
+//metodo setnombre
 c.setNombre("Juan Palomo");
+
+//sobrecarga de operadores ==
 if (j==c)
-cout << "\nj y c son iguales\n";
+    cout << "\nj y c son iguales\n";
 else
-cout << "\nj y c no son iguales\n";
-cout << p->getDni() << " - " << c.getNombre() << ": " << j.getFecha() << endl;
-cout << *p << "\n" << c << "\n" << j << "\n";
+    cout << "\nj y c no son iguales\n";
+    cout << p->getDni() << " - " << c.getNombre() << ": " << j.getFecha() << endl;
+    cout << *p << "\n" << c << "\n" << j << "\n";
+
+//sobrecarga de operadores *
 c = *p;
+
 p->setNombre("Susanita"); p->setFecha(p->getFecha()+10);
+
 cout << "\nDatos de los clientes: \n";
+
 cout << *p << "\n" << c << "\n" << j << "\n";
+
 delete p; p = NULL;
+
 */
+
 system("PAUSE"); return 0;
 }
