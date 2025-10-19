@@ -85,7 +85,19 @@ void Cliente::setFecha(Fecha f){
 
 }
 
+//Sobrecarga del operador==
+bool Cliente::operator==(Cliente c) const {
 
+  if (this->dni!=c.dni) return false;
+
+  if (strcmp(this->nombre, c.nombre)!=0) return false;
+
+  if (this->fechaAlta.getDia()!=c.fechaAlta.getDia() ||
+      this->fechaAlta.getMes()!=c.fechaAlta.getMes() ||
+      this->fechaAlta.getAnio()!=c.fechaAlta.getAnio()) return false;
+
+  return true;
+}
 
 
 

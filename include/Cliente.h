@@ -43,7 +43,8 @@ class Cliente
 
         void setFecha(Fecha f);
 
-
+        //sobrecarga del operador ==
+        bool operator==(Cliente c) const; // if (c1 ===c2)
 
 
 
