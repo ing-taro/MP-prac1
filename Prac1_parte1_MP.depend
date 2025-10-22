@@ -23,3 +23,27 @@
 	"Fecha.h"
 	<iostream>
 
+1761149866 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\main.cpp
+	<cstdlib>
+	<iostream>
+	"Fecha.h"
+	"Cliente.h"
+
+1761149866 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\include\fecha.h
+	<iostream>
+
+1761149866 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\include\cliente.h
+	"Fecha.h"
+	<iostream>
+
+1761149866 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\src\cliente.cpp
+	"Cliente.h"
+	<cstdlib>
+	<cstring>
+	<iomanip>
+	<sstream>
+
+1761149866 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\src\fecha.cpp
+	"Fecha.h"
+	<iostream>
+
