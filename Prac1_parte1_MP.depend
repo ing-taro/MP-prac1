@@ -23,11 +23,12 @@
 	"Fecha.h"
 	<iostream>
 
-1761149866 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\main.cpp
+1761153313 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\main.cpp
 	<cstdlib>
 	<iostream>
+	<iomanip>
 	"Fecha.h"
-	"Cliente.h"
+	"Contrato.h"
 
 1761149866 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\include\fecha.h
 	<iostream>
@@ -46,4 +47,10 @@
 1761149866 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\src\fecha.cpp
 	"Fecha.h"
 	<iostream>
+
+1761153199 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\src\contrato.cpp
+	"Contrato.h"
+
+1761153227 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\include\contrato.h
+	"Fecha.h"
 
