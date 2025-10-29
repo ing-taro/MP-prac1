@@ -18,3 +18,14 @@ Contrato::~Contrato()
 {
     //dtor
 }
+
+
+//metodo ver de la clase contrato
+void Contrato::ver() const {
+
+  cout << this->dniContrato << " (" << this->idContrato << " - ";
+
+  this->fechaContrato.ver(); //llamo al ver del objeto fecha
+
+  cout << ")";
+}
