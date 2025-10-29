@@ -3,7 +3,7 @@
 #include <iomanip> //std::setprecision
 #include "Fecha.h" //definicion de la clase Fecha
 #include "Contrato.h" // definicion de la clase Contrato
-//#include "ContratoTP.h" // definicion de la clase ContratoTP
+#include "ContratoTP.h" // definicion de la clase ContratoTP
 //#include "ContratoMovil.h" // definicion de la clase ContratoMovil
 
 
@@ -27,7 +27,7 @@ f1.ver(); cout << ", "; f2.ver(); cout << ", "; f3.ver(); cout << endl;
 //sobrecarga de operador = clase contrato, igual que el de la clase cliente
 Contrato *p = new Contrato(75547111, f1), c(23000111, Fecha(2,2,2002));
 
-/*
+
 //getters de clase contratoTP
 cout << ContratoTP::getLimiteMinutos() << " - " << ContratoTP::getPrecio() << endl;
 
@@ -39,6 +39,7 @@ ContratoTP ct2(12555100, f3, 320); //habla 320 minutos
 
 ContratoTP ct3(ct1);
 
+/*
 //Creacción de objetos de la clase contratoMovil
 ContratoMovil cm1(17333256, f1, 0.12, 100, "ESPAÑOL"); //habla 100 minutos
 
