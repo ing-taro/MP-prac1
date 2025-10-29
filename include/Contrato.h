@@ -35,4 +35,6 @@ class Contrato
     private:
 };
 
+ostream& operator<<(ostream &s, const Contrato &c);
+
 #endif // CONTRATO_H

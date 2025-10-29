@@ -29,3 +29,15 @@ void Contrato::ver() const {
 
   cout << ")";
 }
+
+//sobrecarga del operador de flujo
+ostream& operator<<(ostream &s, const Contrato &c){
+
+    s << c.getDniContrato() << " (" << c.getIdContrato()<< " - ";
+
+    c.getFechaContrato();
+
+    s << ")";
+
+    return s;
+}
