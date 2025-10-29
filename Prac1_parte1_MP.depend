@@ -33,11 +33,11 @@
 1761149866 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\include\fecha.h
 	<iostream>
 
-1761149866 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\include\cliente.h
+1761754394 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\include\cliente.h
 	"Fecha.h"
 	<iostream>
 
-1761149866 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\src\cliente.cpp
+1761754394 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\src\cliente.cpp
 	"Cliente.h"
 	<cstdlib>
 	<cstring>
@@ -48,9 +48,9 @@
 	"Fecha.h"
 	<iostream>
 
-1761153199 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\src\contrato.cpp
+1761754394 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\src\contrato.cpp
 	"Contrato.h"
 
-1761153227 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\include\contrato.h
+1761754423 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\include\contrato.h
 	"Fecha.h"
 

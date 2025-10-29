@@ -17,6 +17,19 @@ class Contrato
         Contrato(long int dni, Fecha f);
         virtual ~Contrato();
 
+        int getIdContrato() const { return this->idContrato; }
+
+        long int getDniContrato() const { return this->dniContrato; }
+
+        Fecha getFechaContrato() const { return this->fechaContrato; }
+
+        void setFechaContrato(Fecha f) { this->fechaContrato=f; }
+
+        void setDniContrato(long int dni) { this->dniContrato=dni; }
+
+        void ver() const;
+
+
     protected:
 
     private:
