@@ -6,10 +6,17 @@ float ContratoTP::precioTP=10;
 
 const float ContratoTP::precioExcesoMinutos=0.15;
 
+
 //destructor
 ContratoTP::~ContratoTP()
 {
     //dtor
+}
+
+
+ContratoTP::ContratoTP(long int dni, Fecha f, int m):Contrato(dni, f){
+
+    this->minutosHablados = m;
 }
 
 
@@ -21,3 +28,16 @@ void ContratoTP::setTarifaPlana(int m, float p) {
 
 }
 
+
+float ContratoTP::calcularFactura() const {
+    float costeTotal = ContratoTP::precioTP; // Precio fijo de la tarifa plana
+
+    if (this->minutosHablados > ContratoTP::minutosTP) {
+        int exceso = this->minutosHablados - ContratoTP::minutosTP;
+
+        // Usamos el miembro estático constante precioExcesoMinutos
+        costeTotal += exceso * ContratoTP::precioExcesoMinutos;
+    }
+
+    return costeTotal;
+}

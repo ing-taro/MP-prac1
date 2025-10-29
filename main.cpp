@@ -50,47 +50,45 @@ ContratoMovil cm3(cm2);
 
 //método ver, no se de que exactamente.
 p->ver(); cout << "\n"; c.ver(); cout << endl;
-
+*/
 
 //método ver de contrato supongo
 ct1.ver(); cout << endl; ct2.ver(); cout << "\n"; ct3.ver(); cout << "\n";
 
-cm1.ver(); cout << endl; cm2.ver(); cout << "\n"; cm3.ver(); cout << "\n";
+//cm1.ver(); cout << endl; cm2.ver(); cout << "\n"; cm3.ver(); cout << "\n";
 
 
 //getter de la clase contrato
-cout << p->getIdContrato() << ct2.getIdContrato() << cm2.getIdContrato() << endl;
+//cout << p->getIdContrato() << ct2.getIdContrato() << cm2.getIdContrato() << endl;
 
 cout << setprecision(2) << fixed; //a partir de aqui float se muestra con 2 decimales
 
-cout << "Facturas: " << ct1.factura() <<"-"<< ct2.factura() <<"-"<< cm1.factura() << endl;
+//cout << "Facturas: " << ct1.factura() <<"-"<< ct2.factura() <<"-"<< cm1.factura() << endl;
 
 
 //Setter de la clase contratoTP
 ContratoTP::setTarifaPlana(350, 12); //350 minutos por 12 euros
 
 
-//Setter de la clase contratoMovil
-p->setDniContrato(cm1.getDniContrato());
+//p->setDniContrato(cm1.getDniContrato());
 
-//Setter de la clase contratoTP
+//Setter de la clase
 ct3.setFechaContrato(p->getFechaContrato()+1);
 
 //Setter de la clase contratoMovil
-cm3.setNacionalidad(cm1.getNacionalidad());
+//cm3.setNacionalidad(cm1.getNacionalidad());
 
-cm2.setPrecioMinuto(cm1.getPrecioMinuto()+0.02);
+//cm2.setPrecioMinuto(cm1.getPrecioMinuto()+0.02);
 
-cm1.setMinutosHablados(ct2.getMinutosHablados()/2);
+//m1.setMinutosHablados(ct2.getMinutosHablados()/2);
 
 //Setter de la clase contratoTP
-ct1.setMinutosHablados(cm3.getMinutosHablados()*2);
+//ct1.setMinutosHablados(cm3.getMinutosHablados()*2);
 
 cout << *p <<"\n"<< c << endl;
 
-cout << ct1 <<endl<< ct2 <<"\n"<< ct3 <<"\n"<< cm1 <<"\n"<< cm2 <<endl<< cm3 << endl;
+//cout << ct1 <<endl<< ct2 <<"\n"<< ct3 <<"\n"<< cm1 <<"\n"<< cm2 <<endl<< cm3 << endl;
 
-*/
 system("PAUSE");
 
 return 0;

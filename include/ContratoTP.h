@@ -1,7 +1,7 @@
 #ifndef CONTRATOTP_H
 #define CONTRATOTP_H
 
-#include <iostream> //cin, cout
+#include <iostream>
 #include "Fecha.h"
 #include "Contrato.h"
 
@@ -23,6 +23,8 @@ public:
     static int getLimiteMinutos() { return ContratoTP::minutosTP; }
     static float getPrecio() { return ContratoTP::precioTP; }
     static void setTarifaPlana(int m, float p); //el el .cpp se pone la cabecera sin la palabra static
+
+    virtual float calcularFactura()const;
 
 
 
