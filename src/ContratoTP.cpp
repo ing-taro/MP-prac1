@@ -29,7 +29,7 @@ void ContratoTP::setTarifaPlana(int m, float p) {
 }
 
 
-float ContratoTP::calcularFactura() const {
+float ContratoTP::factura() const {
     float costeTotal = ContratoTP::precioTP; // Precio fijo de la tarifa plana
 
     if (this->minutosHablados > ContratoTP::minutosTP) {

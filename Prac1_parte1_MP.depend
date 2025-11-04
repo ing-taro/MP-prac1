@@ -1,21 +1,21 @@
 # depslib dependency file v1.0
-<<<<<<< HEAD
-1760885671 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte1_mp\main.cpp
-=======
+2358092172480 <<<<<<< HEAD
+
 1760890208 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte1_mp\main.cpp
->>>>>>> dev
+
+1760892492 
 	<cstdlib>
 	<iostream>
 	"Fecha.h"
 	"Cliente.h"
+	<iostream>
 
 1760550978 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte1_mp\src\fecha.cpp
 	"Fecha.h"
 	<iostream>
 
-<<<<<<< HEAD
-1760550978 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte1_mp\include\fecha.h
-=======
+1760550978 D
+
 1760889694 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte1_mp\include\fecha.h
 	<iostream>
 
@@ -28,25 +28,24 @@
 
 1760892492 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte1_mp\include\cliente.h
 	"Fecha.h"
->>>>>>> dev
-	<iostream>
 
-1761756498 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\main.cpp
+1762281188 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\main.cpp
 	<cstdlib>
 	<iostream>
 	<iomanip>
 	"Fecha.h"
 	"Contrato.h"
 	"ContratoTP.h"
+	"ContratoMovil.h"
 
 1761149866 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\include\fecha.h
 	<iostream>
 
-1761754394 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\include\cliente.h
+1761758547 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\include\cliente.h
 	"Fecha.h"
 	<iostream>
 
-1761754394 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\src\cliente.cpp
+1761758547 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\src\cliente.cpp
 	"Cliente.h"
 	<cstdlib>
 	<cstring>
@@ -57,16 +56,29 @@
 	"Fecha.h"
 	<iostream>
 
-1761754556 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\src\contrato.cpp
+1761758681 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\src\contrato.cpp
 	"Contrato.h"
 
-1761758376 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\include\contrato.h
+1761758680 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\include\contrato.h
 	"Fecha.h"
 
-1761758048 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\src\contratotp.cpp
+1762280968 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\src\contratotp.cpp
 	"ContratoTP.h"
 
-1761758354 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\include\contratotp.h
+1762281558 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\include\contratotp.h
+	<iostream>
+	"Fecha.h"
+	"Contrato.h"
+
+1762281496 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\src\contratomovil.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	<iomanip>
+	"Contrato.h"
+	"ContratoMovil.h"
+
+1762281495 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\include\contratomovil.h
 	<iostream>
 	"Fecha.h"
 	"Contrato.h"

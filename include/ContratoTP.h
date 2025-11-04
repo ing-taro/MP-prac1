@@ -23,8 +23,10 @@ public:
     static int getLimiteMinutos() { return ContratoTP::minutosTP; }
     static float getPrecio() { return ContratoTP::precioTP; }
     static void setTarifaPlana(int m, float p); //el el .cpp se pone la cabecera sin la palabra static
+    int getMinutosHablados() const { return this->minutosHablados; }
+    void setMinutosHablados(int m) { this->minutosHablados = m; }
 
-    virtual float calcularFactura()const;
+    virtual float factura()const;
 
 
 
