@@ -1,92 +1,66 @@
 #include <cstdlib>
 #include <iostream>
 #include <iomanip> //std::setprecision
-#include "Fecha.h" //definicion de la clase Fecha
+#include "Fecha.h" //definicion clase Fecha
+#include "Cliente.h" // definicion clase Cliente
 #include "Contrato.h" // definicion de la clase Contrato
 #include "ContratoTP.h" // definicion de la clase ContratoTP
 #include "ContratoMovil.h" // definicion de la clase ContratoMovil
-
+#include "Empresa.h" // definicion de la clase Empresa
 
 using namespace std;
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
 
+ bool ok;
 
-//clase fecha
-Fecha f1(29,2,2001), f2(f1), f3(29,2,2004);
+ Empresa Yoigo;
 
-cout << "Fechas: ";
+ cout << setprecision(2) << fixed; //a partir de aqui float se muestra con 2 decimales
 
-f1.ver(); cout << ", "; f2.ver(); cout << ", "; f3.ver(); cout << endl;
-//fin clase fecha
+ cout << endl << "APLICACION DE GESTION TELEFONICA\n" << endl;
 
+ Yoigo.cargarDatos(); //crea 3 clientes y 7 contratos. metodo creado para no
 
-//sobrecarga de operador = clase contrato, igual que el de la clase cliente
-Contrato *p = new Contrato(75547111, f1), c(23000111, Fecha(2,2,2002));
+ Yoigo.ver(); //tener que meter datos cada vez que pruebo el programa
 
+ cout <<"Yoigo tiene " << Yoigo.nContratosTP() << " Contratos de Tarifa Plana\n\n";
 
-//getters de clase contratoTP
-cout << ContratoTP::getLimiteMinutos() << " - " << ContratoTP::getPrecio() << endl;
+ Yoigo.crearContrato(); //ContratoMovil a 37000017 el 01/01/2017 con 100m a 0.25
 
+ Yoigo.crearContrato(); //ContratoTP a 22330014 (pepe luis) el 2/2/2017 con 305m
 
-//Creacción de objetos de la clase contratoTP
-ContratoTP ct1(17333256, f1, 250); //habla 250 minutos
+ ok=Yoigo.cancelarContrato(28); //este Contrato no existe
 
-ContratoTP ct2(12555100, f3, 320); //habla 320 minutos
+ if (ok) cout << "Contrato 28 cancelado\n"; else cout << "El Contrato 28 no existe\n";
 
-ContratoTP ct3(ct1);
+ ok=Yoigo.cancelarContrato(4); //este Contrato si existe
 
+ if (ok)
+ cout << "El Contrato 4 ha sido cancelado\n";
 
-//Creacción de objetos de la clase contratoMovil
-ContratoMovil cm1(17333256, f1, 0.12, 100, "ESPAÑOL"); //habla 100 minutos
+ else
+ cout << "El Contrato 4 no existe\n";
 
-ContratoMovil cm2(17000000, Fecha(3,3,2003), 0.10, 180, "FRANCES"); //habla 180 minutos
+ ok=Yoigo.bajaCliente(75547001); //debe eliminar el cliente y sus 3 Contratos
 
-ContratoMovil cm3(cm2);
+ if (ok) cout << "El cliente 75547001 y sus Contratos han sido cancelados\n";
 
+ else cout << "El cliente 75547001 no existe\n";
 
-//método ver, no se de que exactamente.
-p->ver(); cout << "\n"; c.ver(); cout << endl;
+ Yoigo.ver();
 
-//método ver de contrato supongo
-ct1.ver(); cout << endl; ct2.ver(); cout << "\n"; ct3.ver(); cout << "\n";
+ Yoigo.descuento(20);
 
-cm1.ver(); cout << endl; cm2.ver(); cout << "\n"; cm3.ver(); cout << "\n";
+ cout << "\nTras rebajar un 20% la tarifa de los ContratosMovil...";
 
+ Yoigo.ver();
 
-//getter de la clase contrato
-cout << p->getIdContrato() << ct2.getIdContrato() << cm2.getIdContrato() << endl;
+ cout <<"Yoigo tiene " << Yoigo. nContratosTP () << " Contratos de Tarifa Plana\n";
 
-cout << setprecision(2) << fixed; //a partir de aqui float se muestra con 2 decimales
+ system("PAUSE");
 
-cout << "Facturas: " << ct1.factura() <<"-"<< ct2.factura() <<"-"<< cm1.factura() << endl;
-
-
-//Setter de la clase contratoTP
-ContratoTP::setTarifaPlana(350, 12); //350 minutos por 12 euros
-
-
-//p->setDniContrato(cm1.getDniContrato());
-
-//Setter de la clase
-ct3.setFechaContrato(p->getFechaContrato()+1);
-
-//Getter de la clase contratoMovil
-cm3.setNacionalidad(cm1.getNacionalidad());
-
-cm2.setPrecioMinuto(cm1.getPrecioMinuto()+0.02);
-
-cm1.setMinutosHablados(ct2.getMinutosHablados()/2);
-
-//Setter de la clase contratoTP
-ct1.setMinutosHablados(cm3.getMinutosHablados()*2);
-
-cout << *p <<"\n"<< c << endl;
-
-cout << ct1 <<endl<< ct2 <<"\n"<< ct3 <<"\n"<< cm1 <<"\n"<< cm2 <<endl<< cm3 << endl;
-
-system("PAUSE");
-
-return 0;
+ return 0;
 
 }

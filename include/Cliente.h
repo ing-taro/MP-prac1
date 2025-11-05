@@ -29,12 +29,7 @@ class Cliente
         //destructor
         virtual ~Cliente();
 
-<<<<<<< HEAD
 
-
-};
-
-=======
         Cliente& operator=(const Cliente& c);
 
         //getters
@@ -55,6 +50,5 @@ class Cliente
 
 ostream& operator<<(ostream &s, const Cliente &c); //funcion no amiga de la clase
 
->>>>>>> dev
 
 #endif // CLIENTE_H
