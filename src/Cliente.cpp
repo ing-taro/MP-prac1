@@ -18,10 +18,7 @@ Cliente::Cliente(long int d, char *nom, Fecha f):fechaAlta(f) { //esta cabecera 
   //this->fechaAlta=f;//MAL!!!! los tipos no primitivos debe ir en zona inicializadores
 }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> dev
 //Destructor
 Cliente::~Cliente()
 {
@@ -29,8 +26,6 @@ Cliente::~Cliente()
 }
 
 
-<<<<<<< HEAD
-=======
 //sobrecarga del operador =
 Cliente& Cliente::operator=(const Cliente& c) {
   if (this != &c) { //si no es x=x
@@ -112,11 +107,3 @@ ostream& operator<<(ostream &s, const Cliente &c){
     return s;
 }
 
-
-
-
-
-
-
-
->>>>>>> dev

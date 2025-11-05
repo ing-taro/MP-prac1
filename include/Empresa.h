@@ -25,6 +25,12 @@ class Empresa
 
     int nmaxcon; // Capacidad máxima de contratos (no constante)
 
+    protected:
+
+        int altacliente(Cliente *c);
+
+        int buscarcliente(long int dni) const;
+
 
     public:
 
@@ -32,9 +38,12 @@ class Empresa
 
         virtual ~Empresa();
 
+        void crearContrato();
 
 
-    protected:
+
+
+
 
     private:
 };
