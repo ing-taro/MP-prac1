@@ -301,6 +301,36 @@ void Empresa::cargarDatos() {
 }
 
 
+void Empresa::ver() const {
+
+    cout << endl << "La Empresa tiene " << ncli << " clientes y " << ncon << " contratos" << endl
+         << "Clientes:" << endl;
+
+    for(int i=0; i<ncli; i++)
+        cout << *this->clientes[i] << endl;
+
+    cout << endl << "Contratos:" << endl;
+
+    for(int j=0; j<ncon; j++)
+        if(typeid(*contratos[j])==typeid(ContratoTP)) {
+
+            ContratoTP *cTP = dynamic_cast<ContratoTP*>(contratos[j]);
+
+            cTP->ver();
+
+            cout << " - " << cTP->factura() << "€" << endl;
+        }
+
+        else {
+
+            ContratoMovil *cm = dynamic_cast<ContratoMovil*>(contratos[j]);
+
+            cm->ver();
+
+            cout << " - " << cm->factura() << "€" << endl;
+
+        }
+}
 
 
 

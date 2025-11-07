@@ -50,11 +50,7 @@ class Empresa
 
         void cargarDatos();//crea 3 clientes y 7 contratos. metodo creado para no
 
-        virtual void ver() const;  //tener que meter datos cada vez que pruebo el programa
-
-
-
-
+        virtual void ver() const;  //usamos virtual por el polimorfismo que tiene con lña clase contrato
 
 
     private:
