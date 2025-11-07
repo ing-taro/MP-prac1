@@ -85,7 +85,7 @@ int Empresa::buscarcliente(long int dni) const {
 
 
 
-void Empresa::crearContrato() { //EL ALUMNO DEBE TERMINAR DE IMPLEMENTAR ESTE METODO
+void Empresa::crearContrato() {
 
     long int dni;
 
@@ -95,9 +95,7 @@ void Empresa::crearContrato() { //EL ALUMNO DEBE TERMINAR DE IMPLEMENTAR ESTE ME
 
     cin >> dni;
 
-    //supongo que hay un metodo buscarCliente(dni) que devuelve -1 si no existe y si
-    //existe devuelve la posicion del cliente en el array this->cli
-    pos=this->buscarcliente(dni); //OJO ESTE METODO HAY QUE IMPLEMENTARLO
+    pos=this->buscarcliente(dni);
 
     if (pos==-1) { //el cliente no existe y hay que darlo de alta
 
@@ -105,7 +103,7 @@ void Empresa::crearContrato() { //EL ALUMNO DEBE TERMINAR DE IMPLEMENTAR ESTE ME
 
         char nombre[100];
 
-        Cliente *c; //NO CREO NINGUN CLIENTE SINO SOLO UN PUNTERO A CLIENTE
+        Cliente *c;
 
         cin.ignore();
 
@@ -127,7 +125,7 @@ void Empresa::crearContrato() { //EL ALUMNO DEBE TERMINAR DE IMPLEMENTAR ESTE ME
 
         c=new Cliente(dni, nombre, Fecha(dia, mes, anio));
 
-        pos=this->altacliente(c); //OJO HAY QUE IMPLEMENTARLO
+        pos=this->altacliente(c);
     }
     //viendo cuanto vale la variable pos sé si el cliente se ha dado de alta o no
     if (pos!=-1) { //el cliente existe o se ha dado de alta
@@ -188,6 +186,85 @@ void Empresa::crearContrato() { //EL ALUMNO DEBE TERMINAR DE IMPLEMENTAR ESTE ME
 }
 
 
+bool Empresa::cancelarContrato(int idcontrato){
+
+    for(int i = 0; i < this->ncon; i++){
+
+        //verificosi coincide
+        if(this->contratos[i]->getIdContrato() == idcontrato){
+
+            delete this->contratos[i]; //elimino el puntero
+
+            //bucle para decrementar el puntero
+            for (int j = i + 1; j < this->ncon; j++) {
+
+            this->contratos[j - 1] = this->contratos[j]; //muevo el puntero a la posicioón j-1
+
+        }
+
+        // Decremento ya que eliminé 1 contrato
+        this->ncon--;
+
+        return true;
+
+        }
+    }
+
+    return false;
+}
 
 
+
+bool Empresa::bajaCliente(long int dni) {
+
+    // para hacernos la vida más fácil llamamos al método para buscarlo
+    int pos = this->buscarCliente(dni);
+
+    // Si no existe
+    if (pos == -1) {
+        return false;
+    }
+
+    // Recorremos los contratos para verificar si tiene alguno
+    for (int i = 0; i < this->ncon; i++) {
+
+        //verifico si coincide
+        if (this->contratos[i]->getDniContrato() == dni) {
+
+            // si tiene minimo 1 contrato no lo puedo dar de baja
+            cout << "ERROR: El cliente tiene contratos activos. No se puede dar de baja." <<endl;
+
+            return false;
+        }
+    }
+
+    delete this->clientes[pos];//elimino el puntero
+
+    //bucle para decrementar el puntero
+    for (int j = pos + 1; j < this->ncli; j++) {
+
+        this->clientes[j - 1] = this->clientes[j];//muevo el puntero a la posicioón j-1
+    }
+
+    //Decrementar ya que eliminé 1 cliente
+    this->ncli--;
+
+    return true;
+}
+
+
+int Empresa::nContratosTP() const
+{
+    int contador = 0;
+
+    for(int i=0; i<ncon; i++)
+    {
+        if(typeid(*contratos[i]) == typeid(ContratoTP))
+        {
+            contador++;
+        }
+    }
+
+    return contador;
+}
 
