@@ -40,19 +40,17 @@ class Empresa
 
         void crearContrato();
 
-    void crearContrato();
+        bool cancelarContrato(int idContrato); //true si el Contrato existe, false si no
 
-    bool cancelarContrato(int idContrato); //true si el Contrato existe, false si no
+        bool bajaCliente(long int dni); //true si el Cliente existe, false si no
 
-    bool bajaCliente(long int dni); //true si el Cliente existe, false si no
+        int descuento (float porcentaje) const; //devuelve a cuantos aplica el descuento
 
-    int descuento (float porcentaje) const; //devuelve a cuantos aplica el descuento
+        int nContratosTP() const;
 
-    int nContratosTP() const;
+        void cargarDatos();//crea 3 clientes y 7 contratos. metodo creado para no
 
-    void cargarDatos();//crea 3 clientes y 7 contratos. metodo creado para no
-
-    virtual void ver() const;  //tener que meter datos cada vez que pruebo el programa
+        virtual void ver() const;  //tener que meter datos cada vez que pruebo el programa
 
 
 

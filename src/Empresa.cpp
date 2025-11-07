@@ -218,7 +218,7 @@ bool Empresa::cancelarContrato(int idcontrato){
 bool Empresa::bajaCliente(long int dni) {
 
     // para hacernos la vida más fácil llamamos al método para buscarlo
-    int pos = this->buscarCliente(dni);
+    int pos = this->buscarcliente(dni);
 
     // Si no existe
     if (pos == -1) {
@@ -267,4 +267,6 @@ int Empresa::nContratosTP() const
 
     return contador;
 }
+
+
 
