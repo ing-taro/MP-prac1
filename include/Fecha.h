@@ -1,68 +1,56 @@
 #ifndef FECHA_H
 #define FECHA_H
+
 #include <iostream>
 
 using namespace std;
-//constructor de 3 parametros: dia, mes y año
-//int dia, mes, anio, fecha(d,m,a)
 
-//setfecha(d,m,a)
-//getmes()
-//verfecha()
-//funcion bisiesto
-//f3=f4++ sobrecarga de operador por la izquierda
-//++f4 sobrecarga del operador por la derecha
+class Fecha {
+private:
+    int dia;
+    int mes;
+    int anio;
 
+public:
+    // Constructor (parámetros por valor)
+    Fecha(int dia, int m, int anio);
 
-class Fecha
-{
-    int Dia;
+    // Destructor
+    ~Fecha();
 
-    int Mes;
+    // GETTERS
+    int getDia() const { return dia; }
+    int getMes() const { return this->mes; }
+    int getAnio() const { return this->anio; }
 
-    int Anio;
+    // SETTER (parámetros por valor)
+    void setFecha(int dia, int mes, int a);
 
-    public:
-        //constructor
-        Fecha(int Dia, int Mes, int Anio);
+    // Método para mostrar la fecha (dd/mm/aaaa)
+    void ver() const;
 
-        //Destructor
-        ~Fecha();
+    // Función que comprueba si el año es bisiesto
+    bool bisiesto() const;
 
-        //GETTERS
-        int getDia() const;
+    // Operador pre-incremento (++f)
+    Fecha operator++();
 
-        int getMes() const;
+    // Operador post-incremento (f++)
+    Fecha operator++(int);
 
-        int getAnio() const;
+    // Operador suma (f + dias)
+    Fecha operator+(int i) const;
 
-        //SETTERS
-
-        void setFecha(const int &Dia,const  int &Mes,const int &Anio);
-
-        void ver()const;
-
-         //es bisiesto si es divisible entre 400 o es divisible entre 4 y no entre 100, es bisiesto
-        bool bisiesto() const;
-
-        Fecha operator++(int);
-
-        Fecha operator++();
-
-        Fecha operator+(int dias) const;
-
-        friend ostream& operator<<(ostream& s, const Fecha& f);
-
-
-
-    protected:
-
-    private:
+    // Operadores friend
+    friend ostream& operator<<(ostream &s, const Fecha &f);
+    friend Fecha operator+(int i, const Fecha &f);
 };
 
-Fecha operator+(int dias, const Fecha& f); //tambien lo podríamos usar como funcion Amiga
+// Sobrecarga del operador suma para invertir el orden (dias + f)
+Fecha operator+(int i, const Fecha &f);
 
-ostream& operator<<(ostream& s, const Fecha& f);
-
+// Sobrecarga del operador de inserción
+ostream& operator<<(ostream &s, const Fecha &f);
 
 #endif // FECHA_H
+

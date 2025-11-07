@@ -158,7 +158,7 @@ void Empresa::crearContrato() {
             cout << "minutos hablados: ";
             cin >> m;
 
-            this->contratos[ncon-1] = new ContratoTP(dni, Fecha(d, mes, a), m);
+             this->contratos[ncon-1] = new ContratoTP(dni, Fecha(d, mes, a), m);
         }
 
         else if(tipo==2) {
@@ -333,5 +333,30 @@ void Empresa::ver() const {
 }
 
 
+
+int Empresa::descuento (float porcentaje) const {
+
+    int n = 0;
+
+    for(int i=0; i<this->ncon; i++)
+
+        if(dynamic_cast<ContratoMovil*>(contratos[i])!=0) {
+
+            float nuevoPrecio;
+
+            n++;
+
+            ContratoMovil *cm = dynamic_cast<ContratoMovil*>(contratos[i]);
+
+            nuevoPrecio = cm->getPrecioMinuto()*(1.00-porcentaje/100);
+
+            cm->setPrecioMinuto(nuevoPrecio);
+
+            contratos[i] = dynamic_cast<Contrato*>(cm);
+
+        }
+
+    return n;
+}
 
 

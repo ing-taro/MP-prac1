@@ -1,45 +1,51 @@
 #ifndef CONTRATOMOVIL_H
 #define CONTRATOMOVIL_H
 
-#include <iostream> //cin, cout
+#include <iostream>
 #include "Fecha.h"
-#include "Contrato.h"
+#include "Contrato.h" // Clase base
 
 using namespace std;
 
 class ContratoMovil: public Contrato {
-  float precioMinuto;
-  int minutosHablados;
-  char *nacionalidad; //puntero
+private:
+    float precioMinuto;
+    int minutosHablados;
+    char *nacionalidad; // ¡ATENCIÓN! Recurso dinámico (requiere Regla del 5)
+
 public:
-  ContratoMovil(long int dni, Fecha f, float p, int m, char *nac);
+    // Constructor (Realiza copia profunda de nacionalidad)
+    ContratoMovil(long int dni, Fecha f, float p, int m, const char *nac); // <-- nom es const char*
 
-  virtual ~ContratoMovil(); //necesario porque hay un atributo puntero char*
+    // Constructor de Copia (NECESARIO por el puntero 'nacionalidad')
+    ContratoMovil(const ContratoMovil& c);
 
-  ContratoMovil(const ContratoMovil& c); //constructor de Copia
+    // Destructor (VIRTUAL, esencial para liberar 'nacionalidad' en polimorfismo)
+    virtual ~ContratoMovil();
 
-//ContratoMovil& operator=(const ContratoMovil& c); //necesario si en el main pensamos usar = para asignar
-                                                    //si NUNCA vamos a usar = en el main no hace falta implementarlo
-                                                    //como ContratoMovil hereda un atributo constante idContrato que no puede modificarse
-                                                    //no podemos usar el = en el main() y por tanto no lo implementamos
+    // Sobrecarga del operador de asignación (NECESARIO por el puntero 'nacionalidad')
+    ContratoMovil& operator=(const ContratoMovil& c);
 
-  float getPrecioMinuto() const { return this->precioMinuto; }
-  int getMinutosHablados() const { return this->minutosHablados; }
-  const char* getNacionalidad() const { return this->nacionalidad; } //IMPORTANTE devuelve un puntero constante
-  void setPrecioMinuto(float precio) { this->precioMinuto=precio; }
-  void setMinutosHablados(int m) { this->minutosHablados=m; }
+    // Getters
+    float getPrecioMinuto() const { return this->precioMinuto; }
+    int getMinutosHablados() const { return this->minutosHablados; }
+    const char* getNacionalidad() const { return this->nacionalidad; }
 
-  void setNacionalidad(const char* nac);
+    // Setters (Debe manejar la memoria: delete[] + new[])
+    void setPrecioMinuto(float p) { this->precioMinuto = p; }
+    void setMinutosHablados(int m) { this->minutosHablados = m; }
+    void setNacionalidad(const char *nac); // Recibe const char* para seguridad
 
-  void ver() const;
+    // MÉTODOS POLIMÓRFICOS
 
-  float factura() const;
+    // 1. Método ver() - Implementación de la visualización
+    virtual void ver() const override;
 
+    // 2. Método factura() - Implementación de la función pura de la base
+    virtual float factura() const override;
 };
 
+// Sobrecarga del operador de inserción para ContratoMovil
 ostream& operator<<(ostream &s, const ContratoMovil &c);
-
-
-
 
 #endif // CONTRATOMOVIL_H

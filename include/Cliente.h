@@ -1,54 +1,49 @@
 #ifndef CLIENTE_H
 #define CLIENTE_H
-#include "Fecha.h"
+#include "Fecha.h" // Incluimos la clase Fecha
 
 #include <iostream>
 
 using namespace std;
 
-//debemos crear constrructor
-//destructor
-//getters
-//setters
-//metodos
-//sobrecarga de operadores
-
 class Cliente
 {
-    int dni;
+private:
+    long int dni; // <-- CORREGIDO a long int
+    char *nombre; // Puntero a la cadena de nombre
+    Fecha fechaAlta; // Miembro objeto de la clase Fecha
 
-    char *nombre;
+public:
+    // Constructor (Realiza copia profunda de nombre)
+    Cliente(long int d, const char *nom, Fecha f); // <-- nom es const char*
 
-    Fecha fechaAlta;
+    // Constructor de copia (NECESARIO por el puntero char*)
+    Cliente(const Cliente& c);
 
-    public:
+    // Destructor (NECESARIO por el puntero char*)
+    virtual ~Cliente();
 
-        //constructor
-        Cliente(long int d, char *nom, Fecha f);
+    // Sobrecarga del operador de asignación (NECESARIO por el puntero char*)
+    Cliente& operator=(const Cliente& c);
 
-        //destructor
-        virtual ~Cliente();
+    // Getters
+    long int getDni() const { return dni; } // Implementado en línea
+    const char* getNombre() const { return nombre; } // Devuelve puntero constante (seguridad)
+    Fecha getFecha() const { return fechaAlta; } // Devuelve copia de la Fecha
 
+    // Setters
+    void setNombre(const char *nom); // <-- nom es const char*
+    void setFecha(Fecha f);
 
-        Cliente& operator=(const Cliente& c);
+    // Sobrecarga del operador == (comparación)
+    bool operator==(const Cliente& c) const; // <-- Paso por referencia constante
 
-        //getters
-        long int getDni() const;
-
-        const char* getNombre() const; //VIP devolver un puntero constante para evitar que desde el main() se puede modificar el nombre
-
-        Fecha getFecha() const;
-
-        //setters
-        void setNombre(char *nom);
-
-        void setFecha(Fecha f);
-
-        //sobrecarga del operador ==
-        bool operator==(Cliente c) const; // if (c1==c2)
+    // Sobrecarga del operador != (añadido para completar)
+    bool operator!=(const Cliente& c) const { return !(*this == c); }
 };
 
-ostream& operator<<(ostream &s, const Cliente &c); //funcion no amiga de la clase
+// Sobrecarga del operador de inserción (función no miembro)
+ostream& operator<<(ostream &s, const Cliente &c);
 
 
 #endif // CLIENTE_H

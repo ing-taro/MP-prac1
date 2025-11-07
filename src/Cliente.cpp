@@ -1,109 +1,97 @@
 #include "Cliente.h"
 #include <cstdlib>
-#include <cstring> //strlen, strcpy
-#include <iomanip> //std::setprecision
-#include <sstream> //stringstream
+#include <cstring> // strlen, strcpy
+#include <iomanip>
+#include <sstream>
 
+// Constructor (Realiza copia profunda)
+Cliente::Cliente(long int d, const char *nom, Fecha f)
+    : fechaAlta(f) // Llama al constructor de copia de Fecha
+{
+    this->dni = d;
 
-
-//Cliente::Cliente(long int d, char *nom, Fecha f):fechaAlta(f.getDia(), f.getMes(), f.getAnio()) {
-Cliente::Cliente(long int d, char *nom, Fecha f):fechaAlta(f) { //esta cabecera es mas corta (invoco
-
-  this->dni=d;                                                  //constructor copia de fecha
-                                                                //en vez de constructor de 3 parametros)
-  //this->nombre=nombre;  //MAL!!!!
-  this->nombre=new char[strlen(nom)+1];
-  strcpy(this->nombre, nom);
-
-  //this->fechaAlta=f;//MAL!!!! los tipos no primitivos debe ir en zona inicializadores
+    // Asignación dinámica y copia profunda para el nombre
+    this->nombre = new char[strlen(nom) + 1];
+    strcpy(this->nombre, nom);
 }
 
+// Constructor de Copia (NECESARIO: Regla del 5. Evita Shallow Copy de 'nombre')
+Cliente::Cliente(const Cliente& c)
+    : fechaAlta(c.fechaAlta) // Llama al constructor de copia de Fecha
+{
+    this->dni = c.dni;
 
-//Destructor
+    // Copia profunda para la cadena 'nombre'
+    this->nombre = new char[strlen(c.nombre) + 1];
+    strcpy(this->nombre, c.nombre);
+}
+
+// Destructor (NECESARIO: Libera memoria asignada a 'nombre')
 Cliente::~Cliente()
 {
+    // Libera el array de caracteres del nombre
     delete [] this->nombre;
 }
 
 
-//sobrecarga del operador =
+// Sobrecarga del operador de asignación (NECESARIO: Regla del 5. Evita Shallow Copy)
 Cliente& Cliente::operator=(const Cliente& c) {
-  if (this != &c) { //si no es x=x
-    this->dni=c.dni;
-    delete [] this->nombre;
-    //this->nombre=c.nombre;  //MAL!!!!
-    this->nombre=new char[strlen(c.nombre)+1];
-    strcpy(this->nombre, c.nombre);
-    this->fechaAlta=c.fechaAlta;
-  }
-  return *this;
+    if (this != &c) { // Evita auto-asignación (x = x)
+        this->dni = c.dni;
+
+        // 1. Liberar la memoria antigua de 'nombre'
+        delete [] this->nombre;
+
+        // 2. Asignar nueva memoria y realizar copia profunda
+        this->nombre = new char[strlen(c.nombre) + 1];
+        strcpy(this->nombre, c.nombre);
+
+        // 3. Asignar la Fecha (llama al operator= de la clase Fecha)
+        this->fechaAlta = c.fechaAlta;
+    }
+    return *this;
 }
 
 
-//Getter
-long int Cliente::getDni()const{
+// Setter para el nombre (Realiza copia profunda y maneja la memoria)
+void Cliente::setNombre(const char *nom) { // <-- Ahora recibe const char*
 
-    return this->dni;
-
-}
-
-
-//Getter
-const char* Cliente::getNombre() const {
-
-    return nombre;
-
-}
-
-//Getter
-Fecha Cliente::getFecha() const {
-
-    return fechaAlta;
-
-}
-
-
-//Setter
-void Cliente::setNombre(char *nom){
-
-    if (this->nombre == nom)
-        return;
-
-
+    // 1. Liberar la memoria antigua
     delete[] this->nombre;
 
-
-    this->nombre = new char[strlen(nom)+1];
+    // 2. Asignar nueva memoria y copiar
+    this->nombre = new char[strlen(nom) + 1];
     strcpy(this->nombre, nom);
-
 }
 
 
-void Cliente::setFecha(Fecha f){
-
+// Setter para la fecha (Llama al operator= de la clase Fecha)
+void Cliente::setFecha(Fecha f) {
     this->fechaAlta = f;
-
 }
 
-//Sobrecarga del operador==
-bool Cliente::operator==(Cliente c) const {
+// Sobrecarga del operador == (comparación)
+bool Cliente::operator==(const Cliente& c) const { // <-- Recibe por ref const
 
-  if (this->dni!=c.dni) return false;
+    // 1. Comparar DNI
+    if (this->dni != c.dni) return false;
 
-  if (strcmp(this->nombre, c.nombre)!=0) return false;
+    // 2. Comparar Nombre (contenidos de las cadenas)
+    if (strcmp(this->nombre, c.nombre) != 0) return false;
 
-  if (this->fechaAlta.getDia()!=c.fechaAlta.getDia() ||
-      this->fechaAlta.getMes()!=c.fechaAlta.getMes() ||
-      this->fechaAlta.getAnio()!=c.fechaAlta.getAnio()) return false;
+    // 3. Comparar Fecha (se asume que Fecha no tiene operator==, si no se usaría: this->fechaAlta == c.fechaAlta)
+    if (this->fechaAlta.getDia() != c.fechaAlta.getDia() ||
+        this->fechaAlta.getMes() != c.fechaAlta.getMes() ||
+        this->fechaAlta.getAnio() != c.fechaAlta.getAnio()) return false;
 
-  return true;
+    return true; // Todos los campos coinciden
 }
 
 
-//formato: nombre (dni - fecha)
-ostream& operator<<(ostream &s, const Cliente &c){
-
-    s<<c.getNombre()<<"("<<c.getDni()<<" - "<<c.getFecha()<<")"<<endl;
+// Implementación de la sobrecarga del operador de inserción (función no miembro)
+// formato: nombre (dni - fecha)
+ostream& operator<<(ostream &s, const Cliente &c) {
+    // Usamos los getters para acceder a los datos
+    s << c.getNombre() << " (" << c.getDni() << " - " << c.getFecha() << ")";
     return s;
 }
-
