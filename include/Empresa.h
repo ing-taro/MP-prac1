@@ -27,9 +27,9 @@ class Empresa
 
     protected:
 
-        int altacliente(Cliente *c);
+        int altaCliente(Cliente *c);
 
-        int buscarcliente(long int dni) const;
+        int buscarCliente(long int dni) const;
 
 
     public:

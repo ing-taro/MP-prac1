@@ -29,7 +29,7 @@
 1760892492 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte1_mp\include\cliente.h
 	"Fecha.h"
 
-1762365227 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\main.cpp
+1762596863 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\main.cpp
 	<cstdlib>
 	<iostream>
 	<iomanip>
@@ -90,7 +90,7 @@
 	"Fecha.h"
 	"Contrato.h"
 
-1762527331 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\include\empresa.h
+1762597813 c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\include\empresa.h
 	"Cliente.h"
 	"Contrato.h"
 	"ContratoMovil.h"
@@ -98,11 +98,7 @@
 	"Fecha.h"
 	<iostream>
 
-1762530010 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\src\empresa.cpp
+1762597813 source:c:\users\neizan\documents\uni_(tercero)\mp\practicas\prac1_parte2_mp\src\empresa.cpp
 	"Empresa.h"
-	"Cliente.h"
-	"Contrato.h"
-	"ContratoMovil.h"
-	"ContratoTP.h"
-	"Fecha.h"
+	<typeinfo>
 
