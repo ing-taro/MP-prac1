@@ -52,6 +52,9 @@ class Empresa
 
         virtual void ver() const;  //usamos virtual por el polimorfismo que tiene con lña clase contrato
 
+        int listarContratosMovilPorFecha(const Fecha& f) const;
+
+
 
     private:
 };

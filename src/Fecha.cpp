@@ -111,9 +111,9 @@ ostream& operator<<(ostream &s, const Fecha &f) {
     // Array para obtener el nombre del mes
     const char *meses[] = {"", "ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"};
 
-    // Formato: dd mes aaaa (ej: 05 abr 2024)
+
     if (f.dia < 10)
         s << "0";
     s << f.dia << " " << meses[f.mes] << " " << f.anio;
-    return s; // Importante: retornar el stream
+    return s;
 }

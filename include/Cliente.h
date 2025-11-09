@@ -1,6 +1,6 @@
 #ifndef CLIENTE_H
 #define CLIENTE_H
-#include "Fecha.h" // Incluimos la clase Fecha
+#include "Fecha.h"
 
 #include <iostream>
 
@@ -9,40 +9,40 @@ using namespace std;
 class Cliente
 {
 private:
-    long int dni; // <-- CORREGIDO a long int
-    char *nombre; // Puntero a la cadena de nombre
-    Fecha fechaAlta; // Miembro objeto de la clase Fecha
+    long int dni;
+    char *nombre;
+    Fecha fechaAlta;
 
 public:
-    // Constructor (Realiza copia profunda de nombre)
-    Cliente(long int d, const char *nom, Fecha f); // <-- nom es const char*
+    // Constructor
+    Cliente(long int d, const char *nom, Fecha f);
 
-    // Constructor de copia (NECESARIO por el puntero char*)
+    // Constructor de copia
     Cliente(const Cliente& c);
 
-    // Destructor (NECESARIO por el puntero char*)
+    // Destructor
     virtual ~Cliente();
 
-    // Sobrecarga del operador de asignación (NECESARIO por el puntero char*)
+    // Sobrecarga del operador de asignación
     Cliente& operator=(const Cliente& c);
 
     // Getters
-    long int getDni() const { return dni; } // Implementado en línea
-    const char* getNombre() const { return nombre; } // Devuelve puntero constante (seguridad)
-    Fecha getFecha() const { return fechaAlta; } // Devuelve copia de la Fecha
+    long int getDni() const { return dni; }
+    const char* getNombre() const { return nombre; }
+    Fecha getFecha() const { return fechaAlta; }
 
     // Setters
-    void setNombre(const char *nom); // <-- nom es const char*
+    void setNombre(const char *nom);
     void setFecha(Fecha f);
 
-    // Sobrecarga del operador == (comparación)
-    bool operator==(const Cliente& c) const; // <-- Paso por referencia constante
+    // Sobrecarga del operador ==
+    bool operator==(const Cliente& c) const;
 
-    // Sobrecarga del operador != (añadido para completar)
+    // Sobrecarga del operador !=
     bool operator!=(const Cliente& c) const { return !(*this == c); }
 };
 
-// Sobrecarga del operador de inserción (función no miembro)
+// Sobrecarga del operador de inserción
 ostream& operator<<(ostream &s, const Cliente &c);
 
 

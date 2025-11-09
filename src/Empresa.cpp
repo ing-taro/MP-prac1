@@ -283,3 +283,33 @@ void Empresa::ver() const{
         cout << endl;
     }
 }
+
+
+int Empresa::listarContratosMovilPorFecha (const Fecha& f) const{
+
+    int contador = 0;
+
+    for(int i = 0; i < this->ncon; i++) {
+
+        // Intentamos convertir el Contrato base a ContratoMovil
+        ContratoMovil *cm = dynamic_cast<ContratoMovil*>(this->contratos[i]);
+
+
+        Fecha fechaContrato = cm->getFechaContrato();
+
+
+        if (fechaContrato.getAnio() > f.getAnio() ||
+            (fechaContrato.getAnio() == f.getAnio() && fechaContrato.getMes() > f.getMes()) ||
+            (fechaContrato.getAnio() == f.getAnio() && fechaContrato.getMes() == f.getMes() && fechaContrato.getDia() >= f.getDia())){
+
+                cout << "   -> Contrato ID " << cm->getIdContrato() << ": ";
+                cm->ver(); // Llama al ver() específico de ContratoMovil
+                cout << endl;
+
+                contador++; // Contamos el contrato mostrado
+            }
+    }
+
+    cout << "Total de Contratos Movil listados: " << contador << endl;
+    return contador;
+}

@@ -5,16 +5,10 @@
 
 using namespace std;
 
-// ---------------------------------------------------------------------
-// 1. INICIALIZACIÓN DE MIEMBROS ESTÁTICOS
-// ---------------------------------------------------------------------
 int ContratoTP::minutosTP = 300;
 float ContratoTP::precioTP = 10;
 const float ContratoTP::precioExcesoMinutos = 0.15; // Inamovible
 
-// ---------------------------------------------------------------------
-// 2. CONSTRUCTOR Y DESTRUCTOR
-// ---------------------------------------------------------------------
 
 // Constructor principal
 ContratoTP::ContratoTP(long int dni, Fecha f, int m)
@@ -26,12 +20,9 @@ ContratoTP::ContratoTP(long int dni, Fecha f, int m)
 // Destructor
 ContratoTP::~ContratoTP()
 {
-    // dtor (vacío, no hay new en esta clase)
+    // dtor
 }
 
-// ---------------------------------------------------------------------
-// 3. MÉTODOS ESTÁTICOS Y SETTERS
-// ---------------------------------------------------------------------
 
 // Setter estático para modificar la tarifa plana (minutos y precio)
 void ContratoTP::setTarifaPlana(int m, float p) {
@@ -40,22 +31,18 @@ void ContratoTP::setTarifaPlana(int m, float p) {
 }
 
 
-// ---------------------------------------------------------------------
-// 4. MÉTODOS POLIMÓRFICOS Y DE ACCESO
-// ---------------------------------------------------------------------
 
-// Implementación del método virtual ver()
+// método virtual ver()
 void ContratoTP::ver() const {
-    // 1. Mostrar los datos de la clase base
+    // Mostrar los datos de la clase base
     Contrato::ver();
 
-    // 2. Mostrar los datos específicos de ContratoTP
+    // Mostrar los datos específicos de ContratoTP
     cout << " | Tipo: Tarifa Plana"
          << " | Minutos Hablados: " << this->minutosHablados
          << " | Limite TP: " << ContratoTP::minutosTP << "m"
          << " | Precio TP: " << fixed << setprecision(2) << ContratoTP::precioTP << "€";
 }
-
 
 // Implementación de la función virtual pura factura()
 float ContratoTP::factura() const {
@@ -73,10 +60,9 @@ float ContratoTP::factura() const {
 
 // Sobrecarga del operador de inserción para ContratoTP
 ostream& operator<<(ostream &s, const ContratoTP &c) {
-    // Primero llama al operador de inserción de la clase base (Contrato)
+
     s << (Contrato &)c;
 
-    // Luego añade la información específica de ContratoTP y la factura
     s << " [Minutos Hablados: " << c.getMinutosHablados()
       << ", Factura: " << fixed << setprecision(2) << c.factura() << "€]";
 
